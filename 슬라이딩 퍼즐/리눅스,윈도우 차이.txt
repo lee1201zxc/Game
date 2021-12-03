@@ -1,0 +1,39 @@
+화면 지우기
+
+리눅스-> #include<termio.h> 추가후 system("clear")사용
+윈도우-> #include<windows.h> 추가후 system("cls")사용
+
+
+엔터키 입력없이 문자 입력받기
+
+리눅스-> getch함수 정의 후 사용
+int getch(void)
+{
+	int ch;
+	struct termios buf;
+	struct termios save;
+	tcgetattr(0,&save);
+	buf=save;
+	buf.c_lflag &= ~(ICANON | ECHO);
+	buf.c_cc[VMIN]=1;
+	buf.c_cc[VTIME]=1;
+	tcsetattr(0,TCSAFLUSH,&buf);
+	ch=getchar();
+	tcsetattr(0,TCSAFLUSH,&save);
+	return ch;
+}
+윈도우-> #include<conio.h>추가후getch()사용
+
+
+메인함수 인자전달
+리눅스,윈도우 둘다 가능하나 편의를 위해 윈도우에선 
+쓰지않음
+
+
+딜레이 함수
+리눅스-> #include <unistd.h> 추가후 sleep(3)사용
+윈도우-> #include<windows.h> 추가후 Sleep(3000)사용
+위 두개는 같다.
+
+
+
