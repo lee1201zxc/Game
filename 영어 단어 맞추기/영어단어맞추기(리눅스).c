@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<window.h>
+#include<termio.h>
 #include<string.h>
 #include<stdlib.h>
 void menu(void);
@@ -78,7 +78,7 @@ void read(void)
 		if(strcmp(answer,".quit")==0)
 			incorrect--;
 	}while(strcmp(answer,".quit")!=0&&az->next!=NULL);
-	printf("´ç½ÅÀÇ Á¡¼ö´Â%.2fÁ¡ÀÔ´Ï´Ù.",(double)100*(correct)/(correct+incorrect));
+	printf("ë‹¹ì‹ ì˜ ì ìˆ˜ëŠ”%.2fì ì…ë‹ˆë‹¤.",(double)100*(correct)/(correct+incorrect));
 	char r;
 	getchar();
 	r=getchar();
@@ -91,9 +91,9 @@ void  menu(void)
 	system("clear");
 	link h;
 	int n;
-	printf(">> ¿µ¾î ´Ü¾î ¸ÂÃß±â ÇÁ·Î±×·¥ <<\n");
-	printf("1.¿µ¾î ´Ü¾î ¸ÂÃß±â\t2. ÇÁ·Î±×·¥ Á¾·á\n");
-	printf("\n¹øÈ£¸¦ ¼±ÅÃÇÏ¼¼¿ä:");
+	printf(">> ì˜ì–´ ë‹¨ì–´ ë§ì¶”ê¸° í”„ë¡œê·¸ë¨ <<\n");
+	printf("1.ì˜ì–´ ë‹¨ì–´ ë§ì¶”ê¸°\t2. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n");
+	printf("\në²ˆí˜¸ë¥¼ ì„ íƒí•˜ì„¸ìš”:");
 	scanf("%d",&n);
 	if(n==1)
 	{
